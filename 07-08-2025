@@ -1,19 +1,22 @@
 //revision for the prvious days......
-26]
-27]
-344]
+26] Used arrays for duplicate removal.
+27] Arays indexing for deleting elements
+344] Used 2P approach to reverse an array. Also Stack for reversal
+876] Using slow and fast pointer 
 
+NOTE: WHILE POPING FROM A STACK MAKE SURE TO RESTROE IT IN THE ARRAY [OR ANY DATASET] TO MIDIFY IT.
 
 //Revision for tomorrow
 88]
 121]
 189]
-876]
 1290]
 1957]
+
+//Try again
+136]
+268]
+283]
+485]
 2410]
 3136]
-
-//new learning 
-3363] Find the Max no of fruits collected (HARD)
-
