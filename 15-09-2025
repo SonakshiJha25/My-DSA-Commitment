@@ -1,0 +1,25 @@
+1935. Maximum Number of Words You Can Type
+
+use of sets: provides eazy checking using buitin method "contains".
+But in this question using arrays is much feasible since the time complexity is comparitively less.
+
+
+class Solution {
+    public int canBeTypedWords(String text, String brokenLetters) {
+        Set<Character> broken = new HashSet<>(); //boolean[] bLetter = new boolean[26];
+        for(char x : brokenLetters.toCharArray()) broken.add(x); //bLetter[x - 'a'] = true;
+        int count = 0;
+        
+        for(String word : text.split(" ")){
+            boolean ans = true;
+            for(char y: word.toCharArray()){
+                if(broken.contains(y)){        //bLetter[y - 'a']
+                    ans = false;
+                    break;
+                }
+            }
+            if(ans) count++;
+        }
+        return count;
+    }
+}
