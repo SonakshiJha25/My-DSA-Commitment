@@ -1,0 +1,34 @@
+17. Letter Combinations of a Phone Number
+Using Backtracking.....
+
+import java.util.*;	 
+public class Solution {
+    public List<String> letterCombinations(String digits) {
+        List<String> ans = new ArrayList<>();
+        if (digits.isEmpty()) return ans;
+        Map<Character, String> lMap = new HashMap<>();
+        lMap.put('2', "abc");
+        lMap.put('3', "def");
+        lMap.put('4', "ghi");
+        lMap.put('5', "jkl");
+        lMap.put('6', "mno");
+        lMap.put('7', "pqrs");
+        lMap.put('8', "tuv");
+        lMap.put('9', "wxyz");
+        StringBuilder p = new StringBuilder();
+        backtrack(digits, 0, p , lMap, ans);
+        return ans;
+    }
+    private void backtrack(String d,int i,StringBuilder p,Map<Character,String> lMap,List<String> ans){
+	        if (i == d.length()) {
+	            ans.add(p.toString());
+	            return;
+	        }
+	        String letters = lMap.get(d.charAt(i));
+	        for (char letter : letters.toCharArray()) {
+	            p.append(letter);
+	            backtrack(d, i + 1, p, lMap, ans);
+	            p.deleteCharAt(p.length() - 1);
+	        }
+	    }
+	} 
