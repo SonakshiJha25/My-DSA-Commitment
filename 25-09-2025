@@ -14,3 +14,22 @@ class Solution {
         return ans[0];
     }
 }
+
+ 
+136. Single Number
+Compare two at a time and return if not equal.
+If all the pairs are equal then the last term is unique therefore return the last element.
+
+class Solution {
+    public int singleNumber(int[] nums) {
+        int i = 0, j = i+1;
+        int n = nums.length;
+        Arrays.sort(nums);
+        while (i<n && j<n){
+            if(nums[i] != nums[j]) return nums[i];
+            i+= 2;
+            j+= 2;
+        }
+        return nums[n-1];
+    }
+}
