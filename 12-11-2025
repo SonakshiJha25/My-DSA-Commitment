@@ -1,4 +1,4 @@
-Max-sum-suaaray
+Max-sum-suaaray (leetcode 209)
 
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
@@ -16,5 +16,34 @@ class Solution {
             }
         }
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
+    }
+}
+
+______________________________________________________________________________________________________________________________________________________
+
+Max product subarray (gfg)
+
+class Solution {
+    public int maxProduct(int[] nums) {
+        int n = nums.length;
+
+        int currMax = nums[0];
+        int currMin = nums[0];
+        int maxProd = nums[0];
+
+        for (int i = 1; i < n; i++) {
+            int num = nums[i];
+            if (num < 0) {
+                int temp = currMax;
+                currMax = currMin;
+                currMin = temp;
+            }
+
+            currMax = Math.max(num, num * currMax);
+            currMin = Math.min(num, num * currMin);
+
+            maxProd = Math.max(maxProd, currMax);
+        }
+        return maxProd;
     }
 }
