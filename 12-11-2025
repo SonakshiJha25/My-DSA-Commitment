@@ -1,0 +1,20 @@
+Max-sum-suaaray
+
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int currSum = 0;
+        int minLen = Integer.MAX_VALUE;
+        int i = 0, j = 0;
+        while(i < j){
+            currSum += nums[j];
+            j++;
+            while(currSum >= target){
+                int temp = j - i;
+                minLen = Math.min(minLen, temp);
+                currSum -= nums[i];
+                i--;
+            }
+        }
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
+    }
+}
